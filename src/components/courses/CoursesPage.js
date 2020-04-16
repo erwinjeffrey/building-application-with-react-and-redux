@@ -8,6 +8,7 @@ import CourseList from './CourseList';
 import { Redirect } from 'react-router-dom';
 import Spinner from '../common/Spinner';
 import { toast } from 'react-toastify';
+import { async } from 'q';
 
 class CoursesPage extends Component {
   state = {
@@ -29,12 +30,15 @@ class CoursesPage extends Component {
     }
   }
 
-  handleDeleteCourse = course => {
+  handleDeleteCourse = async course => {
     toast.success('Course Deleted');
-    this.props.actions.deleteCourse(course).catch(error => {
+    try {
+      await this.props.actions.deleteCourse(course);
+    } catch (error) {
       toast.error('Delete failed. ' + error.message, { autoClose: false });
-    });
+    }
   };
+
   render() {
     return (
       <>
