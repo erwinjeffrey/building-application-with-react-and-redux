@@ -1,0 +1,3 @@
+// Mocks CSS imports for Jest. As suggested by ....
+// just for jest to ignore css
+module.exports = {};

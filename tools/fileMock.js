@@ -1,0 +1,3 @@
+// Mocks file import for Jest. As suggested by ...
+// to ignore stub out any file that may exist withing our sistem under test
+module.exports = 'test-file-stub';
